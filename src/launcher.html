@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!--
+            Filet de securite. La politique faisant autorite est posee en en-tete
+            par le main process (src/app.js), qui seul connait l'origine reelle du
+            panel. Celle-ci reste large sur les origines distantes car elles ne
+            sont pas connues ici, mais verrouille script-src : les deux politiques
+            se cumulent par intersection.
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https: http:; img-src 'self' data: https: http:; font-src 'self'; connect-src https: http:; object-src 'none'; base-uri 'none'; form-action 'none';">
+        <link rel="stylesheet" href="assets/css/launcher.css">
+        <link rel="stylesheet" href="${api_url}/custom.css">
+    </head>
+    <body>
+        <div class="dragbar"></div>
+        <div class="darwin">
+            <div class="frame">
+                <div id="close" class="button-frame darwin-icon-close"></div>
+                <div id="minimize" class="button-frame darwin-icon-minimize"></div>
+                <div id="maximize" class="button-frame darwin-icon-maximize"></div>
+
+            </div>
+        </div>
+        <div class="other">
+            <div class="frame">
+                <div id="minimize" class="button-frame icon-minimize"></div>
+                <div id="maximize" class="button-frame icon-maximize"></div>
+                <div id="close" class="button-frame icon-close"></div>
+            </div>
+        </div>
+
+        <div class="popup">
+            <div class="popup-tab">
+                <div class="popup-title"></div>
+                <div class="popup-content"></div>
+                <div class="popup-options">
+                    <button class="popup-button">OK</button>
+                </div>
+            </div>
+        </div>
+        <div class="panels"></div>
+        <script src="assets/js/launcher.js" type="module"></script>
+    </body>
+</html>

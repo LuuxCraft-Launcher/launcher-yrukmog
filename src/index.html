@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!--
+            Filet de securite. La politique faisant autorite est posee en en-tete
+            par le main process (src/app.js), qui seul connait l'origine reelle du
+            panel. Celle-ci reste large sur les origines distantes car elles ne
+            sont pas connues ici, mais verrouille script-src : les deux politiques
+            se cumulent par intersection.
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https: http:; img-src 'self' data: https: http:; font-src 'self'; connect-src https: http:; object-src 'none'; base-uri 'none'; form-action 'none';">
+        <link rel="stylesheet" href="assets/css/index.css">
+        <link rel="stylesheet" href="${api_url}/custom.css">
+    </head>
+    <body>
+        <div id="splash" style="display:none">
+            <img class="splash" src="assets/images/icon/icon.png" />
+            <p class="splash-message"></p>
+            <p class="splash-author"><span class="author"></span></p>
+            <p class="message">Recherche de mise à jour...</p>
+            <progress value="0" max="0" class="progress"></progress>
+        </div>
+        <script src="assets/js/index.js" type="module"></script>
+    </body>
+</html>
